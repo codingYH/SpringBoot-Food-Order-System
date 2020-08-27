@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://10.0.0.108:3306/sell?characterEncoding=utf-8&useSSL=false
+
+  jpa:
+    show-sql: true
+    hibernate:
+      use-new-id-generator-mappings: false
+
+  jackson:
+    default-property-inclusion: non_null
+
+  redis:
+    host: 10.0.0.108
+    port: 6379
+
+  freemarker:
+    template-loader-path:
+       classpath: /templates/
+    suffix: .ftl
+
+wechat:
+  # 公众账号, 授权
+  mpAppId: wx9cadfb434fa67e92
+  mpAppSecret: 41e1883821ae0adf0220df7ca4191a5d
+
+  # 开放平台,  卖家扫码登录用
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+
+  # 支付/商户号
+  mchId:
+  mchKey:
+
+  # 发起支付不需要证书, 退款需要
+#  keyPath: E:/weixin/h5.p12
+  notifyUrl: http://codinghy.natapp1.cc/sell/pay/notify
+  templateId:
+    orderStatus: segwegwrgw
+
+project-url:
+  wechatMpAuthorize: http://codinghy.natapp1.cc
+  wechatOpenAuthorize: http://codinghy.natapp1.cc
+  sell: http://codinghy.natapp1.cc
+logging:
+  level:
+    com.imooc.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+server:
+  servlet:
+    context-path: /sell
